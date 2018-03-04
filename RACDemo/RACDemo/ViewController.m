@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "ReactiveObjC.h"
-#import "NSObject+RACKVOWrapper.h"
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <ReactiveObjC/NSObject+RACKVOWrapper.h>
 #import "RACView.h"
 #import "TestViewController.h"
 #import "LoginViewModel.h"

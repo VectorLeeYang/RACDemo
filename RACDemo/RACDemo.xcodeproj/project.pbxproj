@@ -17,6 +17,7 @@
 		6F070540200A53BA00548FC4 /* RACDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F07053F200A53BA00548FC4 /* RACDemoUITests.m */; };
 		6F07B36B2029A6D400F6BEFC /* RACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F07B36A2029A6D400F6BEFC /* RACView.m */; };
 		6F2AC850204AE93A000D70C1 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AC84F204AE93A000D70C1 /* LoginViewModel.m */; };
+		6F2AC853204AFDE8000D70C1 /* TestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F2AC852204AFDE8000D70C1 /* TestViewModel.m */; };
 		6FFABC7E2040F57400393FF4 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FFABC7D2040F57400393FF4 /* TestViewController.m */; };
 		BC04983DA5BAF1D44D131A7D /* Pods_RACDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A39C0653670D2F99527436FF /* Pods_RACDemo.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,8 @@
 		6F07B36A2029A6D400F6BEFC /* RACView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACView.m; sourceTree = "<group>"; };
 		6F2AC84E204AE93A000D70C1 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		6F2AC84F204AE93A000D70C1 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		6F2AC851204AFDE8000D70C1 /* TestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewModel.h; sourceTree = "<group>"; };
+		6F2AC852204AFDE8000D70C1 /* TestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewModel.m; sourceTree = "<group>"; };
 		6FFABC7C2040F57400393FF4 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		6FFABC7D2040F57400393FF4 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		A39C0653670D2F99527436FF /* Pods_RACDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RACDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,8 @@
 				6FFABC7D2040F57400393FF4 /* TestViewController.m */,
 				6F2AC84E204AE93A000D70C1 /* LoginViewModel.h */,
 				6F2AC84F204AE93A000D70C1 /* LoginViewModel.m */,
+				6F2AC851204AFDE8000D70C1 /* TestViewModel.h */,
+				6F2AC852204AFDE8000D70C1 /* TestViewModel.m */,
 			);
 			path = RACDemo;
 			sourceTree = "<group>";
@@ -343,10 +348,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RACDemo/Pods-RACDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F2AC853204AFDE8000D70C1 /* TestViewModel.m in Sources */,
 				6F070520200A53BA00548FC4 /* ViewController.m in Sources */,
 				6F07B36B2029A6D400F6BEFC /* RACView.m in Sources */,
 				6F2AC850204AE93A000D70C1 /* LoginViewModel.m in Sources */,

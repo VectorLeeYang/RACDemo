@@ -7,8 +7,13 @@
 //
 
 #import "TestViewController.h"
+#import "TestViewModel.h"
 
 @interface TestViewController ()
+
+@property (nonatomic, strong) TestViewModel *testVM;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,38 +21,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor redColor];
-    NSLog(@"test viewDidLoad");
+
+    self.testVM = [[TestViewModel alloc] init];
+    self.tableView = [self.testVM setupTableView];
+    [self.view addSubview:self.tableView];
+    
+    @weakify(self);
+    //将命令执行后的数据交给controller
+    [self.testVM.command.executionSignals.switchToLatest subscribeNext:^(NSArray *array) {
+        @strongify(self);
+        NSLog(@"shuju:%@",[array description]);
+        [self.tableView reloadData];
+        
+    }];
+    //执行command
+    [self.testVM.command execute:nil];
+    
+    // 监听数据源的变化
+    [self.testVM.dataCommand.executionSignals.switchToLatest subscribeNext:^(NSArray *array) {
+        @strongify(self);
+        [self.tableView reloadData];
+    }];
+    
+    // 模拟数据源变化
+    [self performSelector:@selector(dataArrayChange) withObject:nil afterDelay:2];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    NSLog(@"test viewWillAppear");
+// 模拟数据变化
+- (void)dataArrayChange {
+    NSLog(@"fdsfas");
+    [self.testVM dataArrayChange];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"test viewDidAppear");
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    NSLog(@"test viewWillLayoutSubviews");
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    NSLog(@"test viewDidLayoutSubviews");
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    NSLog(@"test viewWillDisappear");
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    NSLog(@"test viewDidDisappear");
-}
 @end
